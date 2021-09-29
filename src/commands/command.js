@@ -1,3 +1,5 @@
+const globalConfig = require('../config/global.json')
+
 module.exports = class Command {
 
     static parse(message, permission) {
@@ -15,15 +17,15 @@ module.exports = class Command {
         return false
     }
 
-    static action(message) {}
+    static action(message) { }
 
     static checkPerm(message, permission = '') {
-        if(permission === '') return true
-        if (message.member.hasPermission(permission)){
+        if (permission === '') return true
+        if (message.member.hasPermission(permission)) {
             return true
-        }else{
+        } else {
             const errorEmbed = {
-                color: process.env.EMBED_COLOR,
+                color: globalConfig.embed_color,
                 title: `Tu n'as pas la permission d'effectuer cette commande...`,
             }
             message.reply({
