@@ -38,27 +38,12 @@ module.exports = class Welcome extends Command {
                 },
                 {
                     name: 'BAC+4',
-                    value: '🛡️ ROSI',
-                    inline: true,
-                },
-                {
-                    name: 'BAC+4',
-                    value: '👨‍💻 DFS',
-                    inline: true,
-                },
-                {
-                    name: '\u200b',
-                    value: '\u200b',
-                    inline: false,
-                },
-                {
-                    name: 'BAC+5',
-                    value: '🔒 ESD',
+                    value: '🛡️ ROSI\n\n👨‍💻 DFS',
                     inline: true,
                 },
                 {
                     name: 'BAC+5',
-                    value: '👨‍💼 EMSI',
+                    value: '🔒 ESD\n\n👨‍💼 EMSI',
                     inline: true,
                 },
             ],
