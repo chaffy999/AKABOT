@@ -1,0 +1,29 @@
+{
+  "name": "akabot",
+  "version": "1.0.0",
+  "description": "Simple Discord bot for the IT-Akademy students server",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaffydev/AKABOT.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "javascript"
+  ],
+  "author": "chaffydev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chaffydev/AKABOT/issues"
+  },
+  "homepage": "https://github.com/chaffydev/AKABOT#readme"
+}
