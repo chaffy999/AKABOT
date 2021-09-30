@@ -7,11 +7,11 @@ module.exports = class Suggestion extends Event {
         if (message.content.length > 10) {
             const suggestionEmbed = {
                 color: globalConfig.embed_color,
-                title: 'Suggestion de ' + message.author.username,
+                title: 'Suggestion de ' + message.member.displayName,
                 description: message.content,
                 timestamp: new Date(),
                 footer: {
-                    text: 'Proposé par ' + message.author.username,
+                    text: 'Proposé par ' + message.member.displayName,
                     icon_url: 'https://cdn.discordapp.com/avatars/' + message.author.id + '/' + message.author.avatar + '.png',
                 },
             }
