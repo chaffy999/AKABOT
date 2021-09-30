@@ -9,11 +9,10 @@ const Welcome = require('./src/commands/welcome')
 const Suggestion = require('./src/events/suggestion')
 
 const React = require('./src/classes/react')
+const Rename = require('./src/classes/rename')
 
 client.on('ready', function () {
-    client.user.setActivity("Code with ❤️", {
-        type: "WATCHING"
-    }).catch(console.error)
+    client.user.setActivity("Code with ❤️")
     console.log('Bot started !')
 })
 
@@ -23,6 +22,8 @@ client.on('message', function (message) {
         Clear.parse(message, 'MANAGE_MESSAGES') || Welcome.parse(message, 'ADMINISTRATOR')
     } else if (message.channel.id == globalConfig.suggestions_channel_id) {
         Suggestion.parse(message)
+    } else if (message.channel.id == globalConfig.welcome_channel_id) {
+        Rename.parse(message)
     }
 })
 
