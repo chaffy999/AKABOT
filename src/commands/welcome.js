@@ -18,7 +18,7 @@ module.exports = class Welcome extends Command {
             },
             fields: [
                 {
-                    name: `N'oubliez pas de réagir à ce message en fonction des formations que vous avez suivi à l'IT Akademy.`,
+                    name: `N'oubliez pas de réagir à ce message en fonction des formations que vous avez suivi.`,
                     value: '\u200b',
                 },
                 {
@@ -46,12 +46,12 @@ module.exports = class Welcome extends Command {
                     value: '🔒 ESD\n\n👨‍💼 EMSI',
                     inline: true,
                 },
-            ],
-            timestamp: new Date(),
-            footer: {
-                text: 'AKABOT.js',
-                icon_url: 'https://avatars.githubusercontent.com/u/61628375',
-            },
+                {
+                    name: '\u200b',
+                    value: '⬇️ N\'oubliez pas d\'envoyer un message contenant votre **prénom** et **nom** ci-dessous afin que vous soyez automatiquement renommé(e). ✅',
+                    inline: false,
+                },
+            ]
         }
         message.reply({
             embed: welcomeEmbed
