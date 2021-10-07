@@ -12,7 +12,13 @@ const React = require('./src/classes/react')
 const Rename = require('./src/classes/rename')
 
 client.on('ready', function () {
-    client.user.setActivity("Code with ❤️")
+    const activities = [
+        `Code with ❤️`,
+        `${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)} membres 🦉`,
+        `👨‍💻 ☕ 🔁`
+    ];
+    let i = 0;
+    setInterval(() => client.user.setActivity(`${activities[i++ % activities.length]}`, { type: 'WATCHING' }), 5000);
     console.log('Bot started !')
     setInterval(timeCycle, 21600000);
 })
@@ -55,9 +61,9 @@ function timeCycle() {
         let feed = await parser.parseURL('https://dev.to/feed/?tags[]=github&tags[]=bash&tags[]=django&tags[]=npm&tags[]=java&tags[]=graphql&tags[]=flutter&tags[]=javascript&tags[]=opensource&tags[]=testing&tags[]=android&tags[]=go&tags[]=ruby&tags[]=sql&tags[]=webdev&tags[]=webassembly&tags[]=blockchain&tags[]=csharp&tags[]=linux&tags[]=security&tags[]=react&tags[]=react&tags[]=swift&tags[]=python&tags[]=computerscience&tags[]=git&tags[]=vue&tags[]=laravel&tags[]=cpp&tags[]=css&tags[]=dotnet&tags[]=ios&tags[]=php&tags[]=docker&tags[]=kotlin&tags[]=vscode&tags[]=devops&tags[]=kubernetes&tags[]=typescript&tags[]=ubuntu&tags[]=machinelearning&tags[]=productivity&tags[]=aws&tags[]=rails')
         var rand = randomInt(1, 6)
         const channel = await client.channels.fetch(globalConfig.tech_channel_id)
-        if(feed.items[rand].title && feed.items[rand].link){
-            channel.send(":newspaper: | **"+feed.items[rand].title+"**\n\n"+feed.items[rand].link)
-        }else{
+        if (feed.items[rand].title && feed.items[rand].link) {
+            channel.send(":newspaper: | **" + feed.items[rand].title + "**\n\n" + feed.items[rand].link)
+        } else {
             console.log('empty')
         }
     })();
