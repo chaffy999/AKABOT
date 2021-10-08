@@ -4,6 +4,8 @@
   "description": "Simple Discord bot for the IT-Akademy students server",
   "main": "index.js",
   "dependencies": {
+    "canvacord": "^5.2.3",
+    "discord-xp": "^1.1.16",
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0",
     "rss-parser": "^3.12.0"

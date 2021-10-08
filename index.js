@@ -1,17 +1,23 @@
 const Discord = require('discord.js')
+const Levels = require("discord-xp")
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
 require('dotenv').config()
 const globalConfig = require('./src/config/global.json')
 
 const Clear = require('./src/commands/clear')
 const Welcome = require('./src/commands/welcome')
+const Rank = require('./src/commands/rank')
+const Leaderboard = require('./src/commands/leaderboard')
 
 const Suggestion = require('./src/events/suggestion')
 
 const React = require('./src/classes/react')
 const Rename = require('./src/classes/rename')
+const Xp = require('./src/classes/xp')
 
-client.on('ready', function () {
+Levels.setURL(`mongodb+srv://dbAkabot:${process.env.DB_PASS}@cluster0.0pfn9.mongodb.net/AKABOT?retryWrites=true&w=majority`)
+
+client.on('ready', async (message) => {
     const activities = [
         `Code with ❤️`,
         `${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)} membres 🦉`,
@@ -23,14 +29,17 @@ client.on('ready', function () {
     setInterval(timeCycle, 21600000);
 })
 
-client.on('message', function (message) {
+client.on('message', async (message) => {
+    if (!message.guild) return
     if (message.author.bot) return
     if (message.content.charAt(0) === globalConfig.prefix) {
-        Clear.parse(message, 'MANAGE_MESSAGES') || Welcome.parse(message, 'ADMINISTRATOR')
+        Rank.parse(message) || Leaderboard.parse(message) || Clear.parse(message, 'MANAGE_MESSAGES') || Welcome.parse(message, 'ADMINISTRATOR')
     } else if (message.channel.id == globalConfig.suggestions_channel_id) {
         Suggestion.parse(message)
     } else if (message.channel.id == globalConfig.welcome_channel_id) {
         Rename.parse(message)
+    } else {
+        Xp.parse(message)
     }
 })
 
