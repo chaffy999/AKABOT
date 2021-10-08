@@ -1,4 +1,5 @@
 const Command = require('./command')
+const globalConfig = require('../config/global.json')
 
 module.exports = class Clear extends Command {
 
@@ -14,7 +15,7 @@ module.exports = class Clear extends Command {
         if (message.channel.type == 'text') {
             message.channel.bulkDelete(args[0]).then(() => {
                 const errorEmbed = {
-                    color: process.env.EMBED_COLOR,
+                    color: globalConfig.embed_color,
                     title: `Les ${args[0]} derniers messages ont été supprimés !`,
                 }
                 message.channel.send({
