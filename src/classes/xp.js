@@ -1,7 +1,7 @@
 const Levels = require("discord-xp")
 const globalConfig = require('../config/global.json')
 
-module.exports = class Rank {
+module.exports = class Xp {
 
     static async addXp(message) {
         const randomAmountOfXp = Math.floor(Math.random() * 29) + 1; // Min 1, Max 30
