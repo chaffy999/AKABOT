@@ -10,6 +10,7 @@ const Rank = require('./src/commands/rank')
 const Leaderboard = require('./src/commands/leaderboard')
 
 const Suggestion = require('./src/events/suggestion')
+const Welcomer = require('./src/events/welcomer')
 
 const React = require('./src/classes/react')
 const Rename = require('./src/classes/rename')
@@ -27,6 +28,11 @@ client.on('ready', async (message) => {
     setInterval(() => client.user.setActivity(`${activities[i++ % activities.length]}`, { type: 'WATCHING' }), 5000);
     console.log('Bot started !')
     setInterval(timeCycle, 21600000);
+})
+
+client.on('guildMemberAdd', async(member) => {
+    if (member.bot) return
+    Welcomer.parse(member)
 })
 
 client.on('message', async (message) => {
