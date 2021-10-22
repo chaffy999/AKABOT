@@ -19,13 +19,15 @@ const Xp = require('./src/classes/xp')
 Levels.setURL(`mongodb+srv://dbAkabot:${process.env.DB_PASS}@cluster0.0pfn9.mongodb.net/AKABOT?retryWrites=true&w=majority`)
 
 client.on('ready', async (message) => {
-    const activities = [
-        `Code with ❤️`,
-        `${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)} membres 🦉`,
-        `👨‍💻 ☕ 🔁`
-    ];
     let i = 0;
-    setInterval(() => client.user.setActivity(`${activities[i++ % activities.length]}`, { type: 'WATCHING' }), 5000);
+    setInterval(() => {
+        let activities = [
+            `Code with ❤️`,
+            `${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)} membres 🦉`,
+            `👨‍💻 ☕ 🔁`
+        ];
+        client.user.setActivity(`${activities[i++ % activities.length]}`, { type: 'WATCHING' })
+    }, 5000);
     console.log('Bot started !')
     setInterval(timeCycle, 21600000);
 })
