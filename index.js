@@ -29,7 +29,7 @@ client.on('ready', async (message) => {
         client.user.setActivity(`${activities[i++ % activities.length]}`, { type: 'WATCHING' })
     }, 5000);
     console.log('Bot started !')
-    setInterval(timeCycle, 21600000);
+    setInterval(timeCycle, 43200000);
 })
 
 client.on('guildMemberAdd', async(member) => {
@@ -80,6 +80,10 @@ function timeCycle() {
         const channel = await client.channels.fetch(globalConfig.tech_channel_id)
         if (feed.items[rand].title && feed.items[rand].link) {
             channel.send(":newspaper: | **" + feed.items[rand].title + "**\n\n" + feed.items[rand].link)
+            .then(function (message) {
+                message.react('👍')
+                message.react('👎')
+            })
         } else {
             console.log('empty')
         }
