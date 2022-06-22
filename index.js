@@ -1,6 +1,6 @@
-const Discord = require('discord.js')
+const { Client, Intents } = require('discord.js')
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_MEMBERS] })
 const Levels = require("discord-xp")
-const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
 require('dotenv').config()
 const globalConfig = require('./src/config/global.json')
 
@@ -8,6 +8,7 @@ const Clear = require('./src/commands/clear')
 const Welcome = require('./src/commands/welcome')
 const Rank = require('./src/commands/rank')
 const Leaderboard = require('./src/commands/leaderboard')
+const Verify = require('./src/commands/verify')
 
 const Suggestion = require('./src/events/suggestion')
 const Welcomer = require('./src/events/welcomer')
@@ -18,7 +19,7 @@ const Xp = require('./src/classes/xp')
 
 Levels.setURL(`mongodb+srv://dbAkabot:${process.env.DB_PASS}@cluster0.0pfn9.mongodb.net/AKABOT?retryWrites=true&w=majority`)
 
-client.on('ready', async (message) => {
+client.once('ready', async () => {
     let i = 0;
     setInterval(() => {
         let activities = [
@@ -37,11 +38,11 @@ client.on('guildMemberAdd', async(member) => {
     Welcomer.parse(member)
 })
 
-client.on('message', async (message) => {
+client.on('messageCreate', async (message) => {
     if (!message.guild) return
     if (message.author.bot) return
     if (message.content.charAt(0) === globalConfig.prefix) {
-        Rank.parse(message) || Leaderboard.parse(message) || Clear.parse(message, 'MANAGE_MESSAGES') || Welcome.parse(message, 'ADMINISTRATOR')
+        Rank.parse(message) || Leaderboard.parse(message) || Clear.parse(message, 'MANAGE_MESSAGES') || Welcome.parse(message, 'ADMINISTRATOR') || Verify.parse(message, 'ADMINISTRATOR')
     } else if (message.channel.id == globalConfig.suggestions_channel_id) {
         Suggestion.parse(message)
     } else if (message.channel.id == globalConfig.welcome_channel_id) {

@@ -21,7 +21,7 @@ module.exports = class Command {
 
     static checkPerm(message, permission = '') {
         if (permission === '') return true
-        if (message.member.hasPermission(permission)) {
+        if (message.member.permissions.has(permission)) {
             return true
         } else {
             const errorEmbed = {
@@ -31,7 +31,7 @@ module.exports = class Command {
             message.reply({
                 embed: errorEmbed
             }).then(response => {
-                response.delete({ timeout: 5000 })
+                setTimeout(() => response.delete(), 5000)
             })
             message.delete()
             return false

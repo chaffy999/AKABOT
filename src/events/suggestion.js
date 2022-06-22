@@ -16,7 +16,8 @@ module.exports = class Suggestion extends Event {
                 },
             }
             message.channel.send({
-                embed: suggestionEmbed
+                ephemeral: false,
+                embeds: [suggestionEmbed],
             }).then(function (sendMessage) {
                 sendMessage.react('✅')
                 sendMessage.react('❌')
@@ -26,10 +27,11 @@ module.exports = class Suggestion extends Event {
                 color: globalConfig.embed_color,
                 title: 'Merci de nous donner plus de détails sur votre suggestion (plus de 10 caractères)',
             }
-            message.reply({
-                embed: errorEmbed
+            message.channel.send({
+                ephemeral: false,
+                embeds: [errorEmbed],
             }).then(response => {
-                response.delete({ timeout: 5000 })
+                setTimeout(() => response.delete(), 5000)
             })
         }
         message.delete()
