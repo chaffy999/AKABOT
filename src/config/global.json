@@ -1,1 +1,16 @@
-{"prefix":"!","suggestions_channel_id":"923704709804617750","welcome_channel_id":"923877939978838066","random_channel_id":"879629195410563072","tech_channel_id":"893131502144094230","embed_color":"0xf15322","emsi_group_id":"862261673574268928","esd_group_id":"862265577145630760","dfs_group_id":"862261536847560764","rosi_group_id":"866660335490433034","dwm_group_id":"862271063684284426","tlo_group_id":"866660635601534986","welcome_message_id":"989185339589537853"}
+{
+  "prefix": "!",
+  "suggestions_channel_id": "864268742891929610",
+  "welcome_channel_id": "862256116813922315",
+  "random_channel_id": "879629195410563072",
+  "tech_channel_id": "893131502144094230",
+  "embed_color": "0xf15322",
+  "emsi_group_id": "862261673574268928",
+  "esd_group_id": "862265577145630760",
+  "dfs_group_id": "862261536847560764",
+  "rosi_group_id": "866660335490433034",
+  "dwm_group_id": "862271063684284426",
+  "tlo_group_id": "866660635601534986",
+  "welcome_message_id": "893068369455112222",
+  "verified_group_id": "989524078480203786"
+}

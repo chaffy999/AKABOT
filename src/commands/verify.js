@@ -10,8 +10,8 @@ module.exports = class Verify extends Command {
   static async action(message) {
     const row = new MessageActionRow().addComponents(
       new MessageButton()
-        .setURL("https://www.it-akademy.fr/")
-        .setLabel("➡️ Vérifier mon compte Google")
+        .setURL(`https://discord.com/api/oauth2/authorize?client_id=793935399914831924&redirect_uri=https%3A%2F%2Fakabot-js.herokuapp.com&response_type=code&scope=identify`)
+        .setLabel("✅ Vérifier mon compte Google")
         .setStyle("LINK")
     );
 
