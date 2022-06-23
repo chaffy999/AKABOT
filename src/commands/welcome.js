@@ -53,8 +53,9 @@ module.exports = class Welcome extends Command {
                 },
             ]
         }
-        message.reply({
-            embed: welcomeEmbed
+        message.channel.send({
+            ephemeral: false,
+            embeds: [welcomeEmbed],
         }).then(function (message) {
             message.react('🧪')
             message.react('📱')

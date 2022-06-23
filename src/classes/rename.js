@@ -8,10 +8,11 @@ module.exports = class Rename {
             color: globalConfig.embed_color,
             title: `Vous avez bien été renommé.`,
         }
-        message.reply({
-            embed: errorEmbed
+        message.channel.send({
+            ephemeral: false,
+            embeds: [errorEmbed],
         }).then(response => {
-            response.delete({ timeout: 5000 })
+            setTimeout(() => response.delete(), 5000)
         })
         message.delete()
     }
@@ -21,10 +22,11 @@ module.exports = class Rename {
             color: globalConfig.embed_color,
             title: `Le message que vous avez envoyé est trop court pour contenir votre nom et prénom...`,
         }
-        message.reply({
-            embed: errorEmbed
+        message.channel.send({
+            ephemeral: false,
+            embeds: [errorEmbed],
         }).then(response => {
-            response.delete({ timeout: 5000 })
+            setTimeout(() => response.delete(), 5000)
         })
         message.delete()
     }

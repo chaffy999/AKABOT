@@ -1,0 +1,22 @@
+<!-- views/success.ejs -->
+<!doctype html>
+<html>
+  <head>
+    <title>Google vérification | Discord IT-Akademy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- load fontawesome -->
+      <style>
+          body        { padding-top:70px; }
+      </style>
+  </head>
+  <body class="bg-dark">
+    <div class="container text-center text-light">
+      <img class="mx-auto" src="/img/akahibou.png" alt="Logo IT-Akademy" width="250"/>
+      <h1>🎉 Votre compte a bien été vérifié</h1>
+      <p>
+          Merci <strong><%= user.displayName %></strong> ! Votre compte Google <strong><%= user.emails[0].value %></strong> a été vérifié.<br>
+          Vous avez maintenant accès au serveur Discord des étudiants de l'IT-Akademy.
+      </p>
+    </div>
+  </body>
+</html>
