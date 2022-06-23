@@ -6,6 +6,7 @@ const client = new Client({
     Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
     Intents.FLAGS.GUILD_MEMBERS,
   ],
+  partials: ["MESSAGE", "CHANNEL", "REACTION"],
 });
 const Levels = require("discord-xp");
 const axios = require("axios");
