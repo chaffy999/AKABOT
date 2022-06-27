@@ -54,11 +54,6 @@ client.once("ready", async () => {
   setInterval(timeCycle, 43200000);
 });
 
-client.on("guildMemberAdd", async (member) => {
-  if (member.bot) return;
-  Welcomer.parse(member);
-});
-
 client.on("messageCreate", async (message) => {
   if (!message.guild) return;
   if (message.author.bot) return;
