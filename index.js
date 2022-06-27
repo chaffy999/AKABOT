@@ -25,7 +25,6 @@ const Leaderboard = require("./src/commands/leaderboard");
 const Verify = require("./src/commands/verify");
 
 const Suggestion = require("./src/events/suggestion");
-const Welcomer = require("./src/events/welcomer");
 
 const React = require("./src/classes/react");
 const Rename = require("./src/classes/rename");
