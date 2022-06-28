@@ -18,6 +18,7 @@ const Welcome = require("./src/commands/welcome");
 const Rank = require("./src/commands/rank");
 const Leaderboard = require("./src/commands/leaderboard");
 const Verify = require("./src/commands/verify");
+const TicTacToe = require("./src/commands/tictactoe");
 
 const Suggestion = require("./src/events/suggestion");
 
@@ -54,6 +55,7 @@ client.on("messageCreate", async (message) => {
   if (message.content.charAt(0) === globalConfig.prefix) {
     Rank.parse(message) ||
       Leaderboard.parse(message) ||
+      TicTacToe.parse(message) ||
       Clear.parse(message, "MANAGE_MESSAGES") ||
       Welcome.parse(message, "ADMINISTRATOR") ||
       Verify.parse(message, "ADMINISTRATOR");
