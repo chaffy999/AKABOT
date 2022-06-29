@@ -26,13 +26,14 @@ module.exports = class Leaderboard extends Command {
       (e) =>
         `> ${e.position}.   ${e.username}#${
           e.discriminator
-        }              :crossed_swords: Level: ${
+        }\ \ \ \ \ \ \ \ \ \ \ \ \ \ :crossed_swords: Level: ${
           e.level
-        }               :alembic: XP: ${e.xp.toLocaleString()}`
+        }\ \ \ \ \ \ \ \ \ \ \ \ \ \ :alembic: XP: ${e.xp.toLocaleString()}`
     );
     const embedMsg = {
       color: globalConfig.embed_color,
-      title: `:trophy: **Leaderboard**:\n\n${lb.join("\n\n")}`,
+      title: `:trophy: **Leaderboard**:`,
+      description: `${lb.join("\n\n")}`,
     };
     message.channel.send({
       ephemeral: false,
