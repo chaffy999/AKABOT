@@ -35,7 +35,8 @@ module.exports = class Leaderboard extends Command {
       title: `:trophy: **Leaderboard**:\n\n${lb.join("\n\n")}`,
     };
     message.channel.send({
-      embed: embedMsg,
+      ephemeral: false,
+      embeds: [embedMsg],
     });
   }
 };
