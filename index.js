@@ -56,8 +56,10 @@ app.get("/", function (req, res) {
     } catch (error) {
       console.log(error);
     }
+    res.render("pages/auth");
+  }else{
+    res.render("pages/home");
   }
-  res.render("pages/auth");
 });
 
 const port = process.env.PORT || 3000;
